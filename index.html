@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Joyería | Elegancia Eterna</title>
+    <!-- Google Fonts para un toque sofisticado -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET Y ESTILOS GLOBALES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #faf7f2; /* blanco cálido */
+            color: #2c2c2c;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #b89b7b; /* tono oro viejo */
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: #a38563;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #b89b7b;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #2c2c2c;
+            font-weight: 300;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            color: #4a4a4a;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #b89b7b;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #b89b7b;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: #b89b7b;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            height: 90vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: #2c2c2c;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: #b89b7b;
+        }
+
+        .section-title p {
+            color: #7a7a7a;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* ===== PRODUCTOS ===== */
+        .productos {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .producto-card {
+            background-color: #faf7f2;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .producto-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .producto-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .producto-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .producto-card h3 {
+            font-size: 1.6rem;
+            margin: 15px 0 5px;
+            color: #2c2c2c;
+        }
+
+        .producto-card .precio {
+            font-size: 1.3rem;
+            color: #b89b7b;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .producto-card .btn {
+            padding: 8px 25px;
+            font-size: 0.8rem;
+        }
+
+        /* ===== SOBRE NOSOTROS ===== */
+        .sobre-nosotros {
+            padding: 80px 0;
+            background-color: #faf7f2;
+        }
+
+        .flex-nosotros {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .nosotros-texto {
+            flex: 1 1 300px;
+        }
+
+        .nosotros-texto h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .nosotros-texto p {
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            font-size: 1.05rem;
+        }
+
+        .nosotros-imagen {
+            flex: 1 1 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .nosotros-imagen img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+
+        .nosotros-imagen:hover img {
+            transform: scale(1.03);
+        }
+
+        /* ===== TESTIMONIOS ===== */
+        .testimonios {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .grid-testimonios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonio-card {
+            background-color: #faf7f2;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+
+        .testimonio-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonio-card i {
+            color: #b89b7b;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonio-card p {
+            font-style: italic;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .testimonio-card h4 {
+            font-size: 1.3rem;
+            color: #2c2c2c;
+        }
+
+        .testimonio-card .cliente {
+            color: #b89b7b;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ===== CONTACTO ===== */
+        .contacto {
+            padding: 80px 0;
+            background-color: #faf7f2;
+        }
+
+        .flex-contacto {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contacto-info {
+            flex: 1 1 300px;
+        }
+
+        .contacto-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .contacto-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05rem;
+        }
+
+        .contacto-info i {
+            color: #b89b7b;
+            font-size: 1.3rem;
+            width: 25px;
+        }
+
+        .contacto-form {
+            flex: 1 1 300px;
+        }
+
+        .contacto-form input,
+        .contacto-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            transition: border 0.3s;
+        }
+
+        .contacto-form input:focus,
+        .contacto-form textarea:focus {
+            outline: none;
+            border-color: #b89b7b;
+        }
+
+        .contacto-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #2c2c2c;
+            color: #ddd;
+            padding: 50px 0 20px;
+        }
+
+        .flex-footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col {
+            flex: 1 1 200px;
+        }
+
+        .footer-col h4 {
+            color: #b89b7b;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #b89b7b;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #3d3d3d;
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #b89b7b;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3d3d3d;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-flex {
+                padding: 15px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                display: none;
+                padding: 20px 0;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .flex-nosotros {
+                flex-direction: column-reverse;
+                gap: 30px;
+            }
+
+            .flex-contacto {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .flex-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .producto-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .nosotros-texto h3 {
+                font-size: 1.8rem;
+            }
+
+            .contacto-info h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">LUMINA <span>JOYERÍA</span></div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Colección</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Elegancia Eterna</h1>
+            <p>Piezas únicas que cuentan tu historia</p>
+            <a href="#productos" class="btn">Explorar colección</a>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTOS ===== -->
+    <section id="productos" class="productos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Colección</h2>
+                <p>Joyas atemporales elaboradas con pasión</p>
+            </div>
+            <div class="grid-productos">
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1887&auto=format&fit=crop" alt="Anillo de diamantes">
+                    <h3>Anillo Aurora</h3>
+                    <p class="precio">$1,250</p>
+                    <a href="#" class="btn">Ver más</a>
+                </div>
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=2070&auto=format&fit=crop" alt="Collar de oro">
+                    <h3>Collar Sereno</h3>
+                    <p class="precio">$980</p>
+                    <a href="#" class="btn">Ver más</a>
+                </div>
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=2070&auto=format&fit=crop" alt="Aretes elegantes">
+                    <h3>Aretes Luz</h3>
+                    <p class="precio">$670</p>
+                    <a href="#" class="btn">Ver más</a>
+                </div>
+                <div class="producto-card">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1887&auto=format&fit=crop" alt="Pulsera de plata">
+                    <h3>Pulsera Eterna</h3>
+                    <p class="precio">$890</p>
+                    <a href="#" class="btn">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SOBRE NOSOTROS ===== -->
+    <section id="nosotros" class="sobre-nosotros">
+        <div class="container">
+            <div class="flex-nosotros">
+                <div class="nosotros-texto">
+                    <h3>Artesanía y distinción</h3>
+                    <p>En Lumina Joyería, cada pieza es creada por maestros orfebres con décadas de experiencia. Seleccionamos los mejores materiales: oro de 18 quilates, plata esterlina y gemas certificadas.</p>
+                    <p>Nuestra misión es acompañarte en los momentos más importantes de tu vida con joyas que trascienden generaciones. Creemos en el lujo consciente y en la belleza de lo hecho a mano.</p>
+                    <a href="#contacto" class="btn">Conócenos</a>
+                </div>
+                <div class="nosotros-imagen">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=2070&auto=format&fit=crop" alt="Joyero trabajando">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section id="testimonios" class="testimonios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Historias que brillan</p>
+            </div>
+            <div class="grid-testimonios">
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>El anillo de compromiso superó todas mis expectativas. La atención personalizada fue impecable.</p>
+                    <h4>María González</h4>
+                    <span class="cliente">Cliente frecuente</span>
+                </div>
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Compré unos aretes para el cumpleaños de mi madre y quedó encantada. Calidad excepcional.</p>
+                    <h4>Carlos Ruiz</h4>
+                    <span class="cliente">Comprador verificado</span>
+                </div>
+                <div class="testimonio-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>La pulsera que heredé de mi abuela fue restaurada aquí. Quedó como nueva, sin perder su esencia.</p>
+                    <h4>Laura Méndez</h4>
+                    <span class="cliente">Cliente desde 2018</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Visítanos o escríbenos</h2>
+                <p>Estamos para asesorarte</p>
+            </div>
+            <div class="flex-contacto">
+                <div class="contacto-info">
+                    <h3>Información de contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad Elegante</p>
+                    <p><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> hola@luminajoyeria.com</p>
+                    <p><i class="fas fa-clock"></i> Lun - Sáb: 10:00 - 19:00</p>
+                </div>
+                <div class="contacto-form">
+                    <form action="#" method="post">
+                        <input type="text" name="nombre" placeholder="Tu nombre" required>
+                        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                        <textarea name="mensaje" placeholder="Cuéntanos qué buscas..." required></textarea>
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="flex-footer">
+                <div class="footer-col">
+                    <h4>Lumina Joyería</h4>
+                    <p>Creando momentos inolvidables desde 1995. Elegancia que perdura.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Colección</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="#">Envíos y devoluciones</a></li>
+                        <li><a href="#">Guía de tallas</a></li>
+                        <li><a href="#">Cuidado de joyas</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lumina Joyería. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPT PARA MENÚ RESPONSIVE ===== -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Cambiar icono
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
